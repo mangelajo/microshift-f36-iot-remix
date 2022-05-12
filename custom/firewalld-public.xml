@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<zone>
+  <short>Public</short>
+  <description>For use in public areas. You do not trust the other computers on networks to not harm your computer. Only selected incoming connections are accepted.</description>
+  <service name="ssh"/>
+  <service name="mdns"/>
+  <service name="dhcpv6-client"/>
+  <port port="80" protocol="tcp"/>
+  <port port="443" protocol="tcp"/>
+  <port port="6443" protocol="tcp"/>
+  <port port="30000-32767" protocol="tcp"/>
+  <port port="2379-2380" protocol="tcp"/>
+  <port port="10250" protocol="tcp"/>
+  <port port="10251" protocol="tcp"/>
+  <masquerade/>
+  <interface name="eth0"/>
+  <forward/>
+</zone>

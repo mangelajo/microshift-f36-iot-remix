@@ -1,0 +1,32 @@
+{
+  "ref": "microshift/stable/x86_64",
+  "ex-jigdo-spec": "fedora-iot.spec",
+  "include": "fedora-iot-base.json",
+  "boot-location": "modules",
+  "repos": [
+      "fedora-36",
+      "fedora-36-updates",
+      "fedora-modular",
+      "fedora-updates-modular",
+      "microshift",
+      "microshift-containers"
+  ],
+  "modules": {
+      "enable": ["cri-o:1.21"] 
+  },
+  "packages": [
+      "microshift",
+      "microshift-containers"
+  ],
+  "remove-files" :[
+      "etc/firewalld/zones/public.xml"
+  ],
+  "add-files": [
+      ["firewalld-trusted.xml", "/etc/firewalld/zones/trusted.xml"],
+      ["firewalld-public.xml", "/etc/firewalld/zones/public.xml"]
+  ],
+  "units": [
+      "microshift.service"
+  ],
+  "postprocess-script": "treecompose-post.merged.sh"
+}
